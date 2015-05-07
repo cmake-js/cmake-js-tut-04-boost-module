@@ -6,7 +6,7 @@
     "bindings": "^1.2.1",
     "cmake-js": "*",
     "nan": "^1.7.0",
-    "boost-lib": "unbornchikken/boost-lib"
+    "boost-lib": "*"
   },
   "scripts": {
     "install": "node ./node_modules/cmake-js/bin/cmake-js rebuild",
