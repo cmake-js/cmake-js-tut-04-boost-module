@@ -10,6 +10,7 @@ using v8::String;
 NAN_METHOD(Fibo) {
     NanScope();
 
+    // Lambda from the Fibonacci example:
     boost::coroutines::asymmetric_coroutine<int>::pull_type source(
         [&](boost::coroutines::asymmetric_coroutine<int>::push_type& sink) {
             int first = 1, second = 1;
@@ -24,6 +25,7 @@ NAN_METHOD(Fibo) {
             }
         });
 
+    // Write the results to a string stream:
     std::stringstream ss;
 
     bool first = true;
@@ -37,10 +39,12 @@ NAN_METHOD(Fibo) {
         ss << i;
     }
 
+    // Return it to node engine
     NanReturnValue(NanNew<String>(ss.str().c_str()));
 }
 
 void InitAll(Handle<Object> exports) {
+  // Method that returns the generated Fibonacci sequence as a string:
   exports->Set(NanNew<String>("fibo"),
     NanNew<FunctionTemplate>(Fibo)->GetFunction());
 }
