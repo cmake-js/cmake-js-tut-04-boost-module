@@ -9,6 +9,10 @@
     "boost-lib": "unbornchikken/boost-lib"
   },
   "scripts": {
-    "install": "node ./node_modules/cmake-js/bin/cmake-js rebuild"
+    "install": "node ./node_modules/cmake-js/bin/cmake-js rebuild",
+    "test": "node ./node_modules/mocha/bin/mocha tests"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4"
   }
 }
