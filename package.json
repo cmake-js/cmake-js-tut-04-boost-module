@@ -1,0 +1,14 @@
+{
+  "name": "cmake-js-tut-04-boost-module",
+  "version": "1.0.0",
+  "description": "CMaje.js based native module having Boost.Coroutine dependency",
+  "dependencies": {
+    "bindings": "^1.2.1",
+    "cmake-js": "*",
+    "nan": "^1.7.0",
+    "boost-lib": "unbornchikken/boost-lib"
+  },
+  "scripts": {
+    "install": "node ./node_modules/cmake-js/bin/cmake-js rebuild"
+  }
+}
