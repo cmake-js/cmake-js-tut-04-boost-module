@@ -1,2 +1,1 @@
-# cmake-js-tut-04-boost-module
-CMaje.js based native module having Boost.Coroutine dependency
+See [TUTORIAL 04 Creating CMake.js based native modules with Boost dependency](https://github.com/unbornchikken/cmake-js/wiki/TUTORIAL-04-Creating-CMake.js-based-native-modules-with-Boost-dependency).
