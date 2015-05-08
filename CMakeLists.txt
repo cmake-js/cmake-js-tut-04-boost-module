@@ -5,7 +5,7 @@ project (addon)
 
 # Boost dependency
 # Include BoostLib module
-SET(CMAKE_MODULE_PATH  ${CMAKE_CURRENT_SOURCE_DIR}/node_modules/boost-lib/cmake)
+SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/node_modules/boost-lib/cmake")
 include(BoostLib)
 
 # C++11 required for actual Boost versions.
