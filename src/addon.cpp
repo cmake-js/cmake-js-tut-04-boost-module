@@ -8,8 +8,6 @@ using v8::Object;
 using v8::String;
 
 NAN_METHOD(Fibo) {
-    NanScope();
-
     // Lambda from the Fibonacci example:
     boost::coroutines::asymmetric_coroutine<int>::pull_type source(
         [&](boost::coroutines::asymmetric_coroutine<int>::push_type& sink) {
@@ -40,13 +38,13 @@ NAN_METHOD(Fibo) {
     }
 
     // Return it to node engine
-    NanReturnValue(NanNew<String>(ss.str().c_str()));
+    info.GetReturnValue().Set(Nan::New<String>(ss.str().c_str()).ToLocalChecked());
 }
 
 void InitAll(Handle<Object> exports) {
   // Method that returns the generated Fibonacci sequence as a string:
-  exports->Set(NanNew<String>("fibo"),
-    NanNew<FunctionTemplate>(Fibo)->GetFunction());
+  exports->Set(Nan::New<String>("fibo").ToLocalChecked(),
+    Nan::New<FunctionTemplate>(Fibo)->GetFunction());
 }
 
 NODE_MODULE(addon, InitAll)

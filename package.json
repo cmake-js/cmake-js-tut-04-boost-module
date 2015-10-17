@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "CMaje.js based native module having Boost.Coroutine dependency",
   "dependencies": {
-    "bindings": "^1.2.1",
+    "bindings": "*",
     "cmake-js": "*",
-    "nan": "^1.7.0",
+    "nan": "2",
     "boost-lib": "*"
   },
   "scripts": {
@@ -13,6 +13,6 @@
     "test": "node ./node_modules/mocha/bin/mocha tests"
   },
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "mocha": "*"
   }
 }
