@@ -4,14 +4,13 @@ cmake_minimum_required(VERSION 2.8)
 project (addon)
 
 # Boost dependency
-# Include BoostLib module
-SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/node_modules/boost-lib/cmake")
-include(BoostLib)
 
-# C++11 required for actual Boost versions.
-if(UNIX)
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-endif()
+# Include BoostLib module
+file(GLOB_RECURSE boostlib_cmake_path "${CMAKE_CURRENT_SOURCE_DIR}/node_modules" "BoostLib.cmake")
+list(GET boostlib_cmake_path 0 boostlib_cmake_path)
+get_filename_component(boostlib_cmake_path "${boostlib_cmake_path}" DIRECTORY)
+SET(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${boostlib_cmake_path}")
+include(BoostLib)
 
 # Locate/Download Boost (semver)
 require_boost_libs(">= 1.58.0" "coroutine")
